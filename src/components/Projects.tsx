@@ -58,7 +58,7 @@ function ProjectCarousel({ images, title }: CarouselProps) {
   return (
     <div className="relative">
       <div className="pointer-events-none absolute -inset-6 rounded-[28px] bg-gradient-to-br from-[color:var(--accent)]/18 via-transparent to-[color:var(--accent-2)]/20 blur-2xl" />
-      <div className="group relative overflow-hidden rounded-[28px] border border-white/70 bg-white/75">
+      <div className="group relative overflow-hidden rounded-[28px] border border-[color:var(--ring)] bg-[color:var(--panel-strong)]">
         <div
           className="flex w-full transition-transform duration-500 ease-out"
           style={{ transform: `translateX(-${activeIndex * 100}%)` }}
@@ -66,7 +66,7 @@ function ProjectCarousel({ images, title }: CarouselProps) {
           {images.map((src, index) => (
             <div
               key={`${title}-image-${index}`}
-              className="relative h-[210px] min-w-full flex-shrink-0 overflow-hidden sm:h-[260px]"
+              className="relative h-[220px] min-w-full flex-shrink-0 overflow-hidden sm:h-[270px]"
             >
               <img
                 src={src}
@@ -74,8 +74,8 @@ function ProjectCarousel({ images, title }: CarouselProps) {
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                 loading="lazy"
               />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[color:var(--ink)]/55 via-[color:var(--ink)]/10 to-transparent" />
-              <div className="absolute left-4 top-4 rounded-full border border-white/70 bg-white/80 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.3em] text-[color:var(--ink-soft)]">
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[color:var(--bg)]/70 via-[color:var(--bg)]/10 to-transparent" />
+              <div className="absolute left-4 top-4 rounded-full border border-[color:var(--ring)] bg-[color:var(--panel)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.3em] text-[color:var(--ink-soft)]">
                 {String(index + 1).padStart(2, '0')}
               </div>
             </div>
@@ -86,7 +86,7 @@ function ProjectCarousel({ images, title }: CarouselProps) {
         <button
           type="button"
           onClick={handlePrev}
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-white/70 bg-white/90 text-sm font-semibold uppercase tracking-[0.2em] text-[color:var(--ink)] shadow-[0_10px_20px_-12px_rgba(12,18,28,0.35)] transition-all duration-300 hover:-translate-y-1 hover:border-[color:var(--accent)] hover:text-[color:var(--accent)]"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-[color:var(--ring)] bg-[color:var(--panel)] text-sm font-semibold uppercase tracking-[0.2em] text-[color:var(--ink)] shadow-[0_10px_20px_-12px_rgba(0,0,0,0.5)] transition-all duration-300 hover:-translate-y-1 hover:border-[color:var(--accent)] hover:text-[color:var(--accent)]"
           aria-label={`Scroll ${title} carousel backward`}
         >
           ‹
@@ -94,7 +94,7 @@ function ProjectCarousel({ images, title }: CarouselProps) {
         <button
           type="button"
           onClick={handleNext}
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-white/70 bg-white/90 text-sm font-semibold uppercase tracking-[0.2em] text-[color:var(--ink)] shadow-[0_10px_20px_-12px_rgba(12,18,28,0.35)] transition-all duration-300 hover:-translate-y-1 hover:border-[color:var(--accent)] hover:text-[color:var(--accent)]"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-[color:var(--ring)] bg-[color:var(--panel)] text-sm font-semibold uppercase tracking-[0.2em] text-[color:var(--ink)] shadow-[0_10px_20px_-12px_rgba(0,0,0,0.5)] transition-all duration-300 hover:-translate-y-1 hover:border-[color:var(--accent)] hover:text-[color:var(--accent)]"
           aria-label={`Scroll ${title} carousel forward`}
         >
           ›
@@ -122,7 +122,7 @@ function Projects() {
     <section id="projects" className="relative mx-auto max-w-6xl px-4 pb-12 sm:px-8 lg:px-12" data-reveal>
       <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)] lg:items-end">
         <div>
-          <p className="text-[11px] font-semibold uppercase tracking-[0.35em] text-[color:var(--accent)]">Projects</p>
+          <p className="text-[10px] font-semibold uppercase tracking-[0.4em] text-[color:var(--accent)]">Projects</p>
           <h2 className="font-display mt-3 text-3xl text-[color:var(--ink)] sm:text-4xl">
             Mobile-ready case studies with serious polish.
           </h2>
@@ -134,11 +134,11 @@ function Projects() {
 
       <div className="mt-7 grid gap-8">
         {projects.map((project, index) => (
-          <article key={project.id} className="glass-card group rounded-[28px] p-4" data-reveal>
-            <div className="grid gap-5 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:items-center">
+          <article key={project.id} className="panel rounded-[28px] p-5" data-reveal>
+            <div className="grid gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:items-center">
               <div className={index % 2 === 0 ? 'order-2 lg:order-1' : 'order-2 lg:order-2'}>
                 <div className="flex items-center gap-3">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[color:var(--ring)] bg-white/80 text-[10px] font-semibold uppercase tracking-[0.2em] text-[color:var(--accent)] sm:h-12 sm:w-12">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[color:var(--ring)] bg-[color:var(--panel-strong)] text-[10px] font-semibold uppercase tracking-[0.2em] text-[color:var(--accent)] sm:h-12 sm:w-12">
                     {String(index + 1).padStart(2, '0')}
                   </span>
                   <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-[color:var(--ink-soft)]/70 sm:text-[12px]">
