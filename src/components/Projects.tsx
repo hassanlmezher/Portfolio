@@ -58,7 +58,7 @@ function ProjectCarousel({ images, title }: CarouselProps) {
   return (
     <div className="relative">
       <div className="pointer-events-none absolute -inset-6 rounded-[28px] bg-gradient-to-br from-[color:var(--accent)]/18 via-transparent to-[color:var(--accent-2)]/20 blur-2xl" />
-      <div className="group relative overflow-hidden rounded-[28px] border border-white/70 bg-white/70">
+      <div className="group relative overflow-hidden rounded-[28px] border border-white/70 bg-white/75">
         <div
           className="flex w-full transition-transform duration-500 ease-out"
           style={{ transform: `translateX(-${activeIndex * 100}%)` }}
@@ -66,16 +66,16 @@ function ProjectCarousel({ images, title }: CarouselProps) {
           {images.map((src, index) => (
             <div
               key={`${title}-image-${index}`}
-              className="relative h-[220px] min-w-full flex-shrink-0 overflow-hidden sm:h-[260px] lg:h-[280px]"
+              className="relative h-[210px] min-w-full flex-shrink-0 overflow-hidden sm:h-[260px]"
             >
               <img
                 src={src}
                 alt={`${title} preview ${index + 1}`}
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                 loading="lazy"
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[color:var(--ink)]/55 via-[color:var(--ink)]/10 to-transparent" />
-              <div className="absolute left-4 top-4 rounded-full border border-white/70 bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.3em] text-[color:var(--ink-soft)]">
+              <div className="absolute left-4 top-4 rounded-full border border-white/70 bg-white/80 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.3em] text-[color:var(--ink-soft)]">
                 {String(index + 1).padStart(2, '0')}
               </div>
             </div>
@@ -100,7 +100,7 @@ function ProjectCarousel({ images, title }: CarouselProps) {
           ›
         </button>
       </div>
-      <div className="mt-4 flex flex-wrap items-center gap-2">
+      <div className="mt-3 flex flex-wrap items-center gap-2">
         {images.map((_, index) => (
           <button
             key={`${title}-dot-${index}`}
@@ -119,44 +119,38 @@ function ProjectCarousel({ images, title }: CarouselProps) {
 
 function Projects() {
   return (
-    <section id="projects" className="relative mx-auto max-w-6xl px-5 pb-16 sm:px-8 sm:pb-20 lg:px-12" data-reveal>
-      <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.8fr)] lg:items-end">
+    <section id="projects" className="relative mx-auto max-w-6xl px-4 pb-12 sm:px-8 lg:px-12" data-reveal>
+      <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)] lg:items-end">
         <div>
-          <p className="text-[12px] font-semibold uppercase tracking-[0.35em] text-[color:var(--accent)]">Projects</p>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.35em] text-[color:var(--accent)]">Projects</p>
           <h2 className="font-display mt-3 text-3xl text-[color:var(--ink)] sm:text-4xl">
-            Selected work that balances refinement, usability, and scalable architecture.
+            Mobile-ready case studies with serious polish.
           </h2>
         </div>
         <p className="text-[15px] leading-7 text-[color:var(--muted)] sm:text-[16px]">
-          Each build includes structured UX, thoughtful data design, and visual polish that feels premium.
+          Each project pairs tight UX, thoughtful data flow, and production-grade delivery.
         </p>
       </div>
 
-      <div className="mt-10 grid gap-10">
+      <div className="mt-7 grid gap-8">
         {projects.map((project, index) => (
-          <article
-            key={project.id}
-            className="glass-card group rounded-[32px] p-5 transition-all duration-300 hover:-translate-y-1"
-            data-reveal
-          >
-            <div className="grid gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:items-center">
+          <article key={project.id} className="glass-card group rounded-[28px] p-4" data-reveal>
+            <div className="grid gap-5 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:items-center">
               <div className={index % 2 === 0 ? 'order-2 lg:order-1' : 'order-2 lg:order-2'}>
                 <div className="flex items-center gap-3">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[color:var(--ring)] bg-white/80 text-[11px] font-semibold uppercase tracking-[0.2em] text-[color:var(--accent)] sm:h-12 sm:w-12">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[color:var(--ring)] bg-white/80 text-[10px] font-semibold uppercase tracking-[0.2em] text-[color:var(--accent)] sm:h-12 sm:w-12">
                     {String(index + 1).padStart(2, '0')}
                   </span>
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.35em] text-[color:var(--ink-soft)]/70 sm:text-[12px]">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-[color:var(--ink-soft)]/70 sm:text-[12px]">
                     {project.label}
                   </p>
                 </div>
-                <h3 className="mt-3 text-2xl font-semibold text-[color:var(--ink)] sm:text-3xl">
-                  {project.name}
-                </h3>
+                <h3 className="mt-3 text-2xl font-semibold text-[color:var(--ink)] sm:text-3xl">{project.name}</h3>
                 <p className="mt-3 text-[14px] leading-7 text-[color:var(--muted)] sm:text-[15px]">
                   {project.description}
                 </p>
 
-                <div className="mt-5 grid gap-3 text-[13px] leading-6 text-[color:var(--ink-soft)] sm:text-[14px]">
+                <div className="mt-4 grid gap-3 text-[13px] leading-6 text-[color:var(--ink-soft)] sm:text-[14px]">
                   {project.highlights.map((item) => (
                     <div key={`${project.id}-${item}`} className="flex items-start gap-3">
                       <span className="mt-2 h-2 w-2 rounded-full bg-[color:var(--accent)]" aria-hidden="true" />
