@@ -1,21 +1,21 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;500;600;700&display=swap');
 
 :root {
   color-scheme: dark;
-  --bg: #0b0f14;
-  --bg-2: #0f1721;
-  --ink: #e7edf5;
-  --ink-soft: #b7c3d6;
-  --muted: #7e8aa1;
-  --panel: rgba(17, 23, 32, 0.82);
-  --panel-strong: rgba(14, 18, 26, 0.94);
-  --ring: rgba(231, 237, 245, 0.08);
-  --accent: #57f0c5;
-  --accent-2: #ff8a5b;
-  --accent-3: #7aa7ff;
-  --shadow-lg: 0 40px 90px -65px rgba(0, 0, 0, 0.75);
-  --shadow-md: 0 30px 70px -60px rgba(0, 0, 0, 0.65);
+  --bg: #0a0a0a;
+  --bg-2: #111111;
+  --ink: #f2f2f2;
+  --ink-soft: #c7c7c7;
+  --muted: #8a8a8a;
+  --panel: rgba(18, 18, 18, 0.78);
+  --panel-strong: rgba(10, 10, 10, 0.9);
+  --ring: rgba(255, 255, 255, 0.08);
+  --accent: #f4f4f4;
+  --accent-2: #cfcfcf;
+  --accent-3: #9f9f9f;
+  --shadow-lg: 0 50px 120px -70px rgba(0, 0, 0, 0.85);
+  --shadow-md: 0 30px 80px -60px rgba(0, 0, 0, 0.7);
 }
 
 * {
@@ -27,7 +27,7 @@ html {
 }
 
 body {
-  font-family: "IBM Plex Sans", "Helvetica", sans-serif;
+  font-family: "Manrope", "Helvetica", sans-serif;
   background: var(--bg);
   color: var(--ink);
   min-height: 100vh;
@@ -39,10 +39,10 @@ body::before {
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(circle at 10% 10%, rgba(87, 240, 197, 0.12), transparent 42%),
-    radial-gradient(circle at 90% 15%, rgba(122, 167, 255, 0.14), transparent 46%),
-    radial-gradient(circle at 60% 90%, rgba(255, 138, 91, 0.12), transparent 45%),
-    linear-gradient(180deg, #0a0e13 0%, #0c1017 45%, #0b0f14 100%);
+    radial-gradient(circle at 15% 15%, rgba(255, 255, 255, 0.08), transparent 45%),
+    radial-gradient(circle at 80% 10%, rgba(255, 255, 255, 0.06), transparent 40%),
+    radial-gradient(circle at 50% 85%, rgba(255, 255, 255, 0.05), transparent 45%),
+    linear-gradient(180deg, #070707 0%, #0b0b0b 45%, #070707 100%);
 }
 
 body::after {
@@ -50,15 +50,17 @@ body::after {
   position: fixed;
   inset: 0;
   z-index: -1;
-  opacity: 0.35;
+  opacity: 0.25;
   background-image:
-    radial-gradient(rgba(231, 237, 245, 0.08) 1px, transparent 1px);
-  background-size: 120px 120px;
+    radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 160px 160px;
   pointer-events: none;
 }
 
 .font-display {
-  font-family: "Space Grotesk", "Helvetica", sans-serif;
+  font-family: "Bebas Neue", "Helvetica", sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .panel {
@@ -70,14 +72,23 @@ body::after {
 
 .panel-strong {
   background: var(--panel-strong);
-  border: 1px solid rgba(231, 237, 245, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: var(--shadow-lg);
   backdrop-filter: blur(20px);
 }
 
-.chip {
-  border: 1px solid var(--ring);
-  background: rgba(17, 23, 32, 0.7);
+.glass-card {
+  background: rgba(20, 20, 20, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(18px);
+}
+
+.soft-card {
+  background: rgba(255, 255, 255, 0.92);
+  color: #0c0c0c;
+  border-radius: 22px;
+  box-shadow: 0 25px 60px -45px rgba(0, 0, 0, 0.55);
 }
 
 @keyframes float-soft {

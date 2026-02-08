@@ -57,7 +57,7 @@ function ProjectCarousel({ images, title }: CarouselProps) {
 
   return (
     <div className="relative">
-      <div className="pointer-events-none absolute -inset-6 rounded-[28px] bg-gradient-to-br from-[color:var(--accent)]/18 via-transparent to-[color:var(--accent-2)]/20 blur-2xl" />
+      <div className="pointer-events-none absolute -inset-6 rounded-[28px] bg-gradient-to-br from-white/10 via-transparent to-white/5 blur-2xl" />
       <div className="group relative overflow-hidden rounded-[28px] border border-[color:var(--ring)] bg-[color:var(--panel-strong)]">
         <div
           className="flex w-full transition-transform duration-500 ease-out"
@@ -66,12 +66,12 @@ function ProjectCarousel({ images, title }: CarouselProps) {
           {images.map((src, index) => (
             <div
               key={`${title}-image-${index}`}
-              className="relative h-[220px] min-w-full flex-shrink-0 overflow-hidden sm:h-[270px]"
+              className="relative h-[220px] w-full flex-none overflow-hidden sm:h-[270px]"
             >
               <img
                 src={src}
                 alt={`${title} preview ${index + 1}`}
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                className="h-full w-full object-contain sm:object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                 loading="lazy"
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[color:var(--bg)]/70 via-[color:var(--bg)]/10 to-transparent" />
@@ -86,7 +86,7 @@ function ProjectCarousel({ images, title }: CarouselProps) {
         <button
           type="button"
           onClick={handlePrev}
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-[color:var(--ring)] bg-[color:var(--panel)] text-sm font-semibold uppercase tracking-[0.2em] text-[color:var(--ink)] shadow-[0_10px_20px_-12px_rgba(0,0,0,0.5)] transition-all duration-300 hover:-translate-y-1 hover:border-[color:var(--accent)] hover:text-[color:var(--accent)]"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-[color:var(--ring)] bg-[color:var(--panel)] text-sm font-semibold uppercase tracking-[0.2em] text-[color:var(--ink)] shadow-[0_10px_20px_-12px_rgba(0,0,0,0.5)] transition-all duration-300 hover:-translate-y-1 hover:border-white/40 hover:text-white"
           aria-label={`Scroll ${title} carousel backward`}
         >
           ‹
@@ -94,7 +94,7 @@ function ProjectCarousel({ images, title }: CarouselProps) {
         <button
           type="button"
           onClick={handleNext}
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-[color:var(--ring)] bg-[color:var(--panel)] text-sm font-semibold uppercase tracking-[0.2em] text-[color:var(--ink)] shadow-[0_10px_20px_-12px_rgba(0,0,0,0.5)] transition-all duration-300 hover:-translate-y-1 hover:border-[color:var(--accent)] hover:text-[color:var(--accent)]"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-[color:var(--ring)] bg-[color:var(--panel)] text-sm font-semibold uppercase tracking-[0.2em] text-[color:var(--ink)] shadow-[0_10px_20px_-12px_rgba(0,0,0,0.5)] transition-all duration-300 hover:-translate-y-1 hover:border-white/40 hover:text-white"
           aria-label={`Scroll ${title} carousel forward`}
         >
           ›
@@ -107,7 +107,7 @@ function ProjectCarousel({ images, title }: CarouselProps) {
             type="button"
             onClick={() => setActiveIndex(index)}
             className={`h-2 w-8 rounded-full transition-all ${
-              index === activeIndex ? 'bg-[color:var(--accent)]' : 'bg-[color:var(--ring)]'
+              index === activeIndex ? 'bg-white' : 'bg-[color:var(--ring)]'
             }`}
             aria-label={`Show ${title} image ${index + 1}`}
           />
@@ -119,26 +119,26 @@ function ProjectCarousel({ images, title }: CarouselProps) {
 
 function Projects() {
   return (
-    <section id="projects" className="relative mx-auto max-w-6xl px-4 pb-12 sm:px-8 lg:px-12" data-reveal>
-      <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)] lg:items-end">
+    <section id="projects" className="relative mx-auto max-w-6xl px-4 pb-20 sm:px-8 lg:px-12" data-reveal>
+      <div className="grid gap-4 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-end">
         <div>
-          <p className="text-[10px] font-semibold uppercase tracking-[0.4em] text-[color:var(--accent)]">Projects</p>
-          <h2 className="font-display mt-3 text-3xl text-[color:var(--ink)] sm:text-4xl">
-            Mobile-ready case studies with serious polish.
+          <p className="text-[10px] font-semibold uppercase tracking-[0.5em] text-[color:var(--muted)]">Projects</p>
+          <h2 className="font-display mt-3 text-4xl text-[color:var(--ink)] sm:text-5xl">
+            Work with presence.
           </h2>
         </div>
         <p className="text-[15px] leading-7 text-[color:var(--muted)] sm:text-[16px]">
-          Each project pairs tight UX, thoughtful data flow, and production-grade delivery.
+          Selected builds that combine visual intensity with stable engineering.
         </p>
       </div>
 
-      <div className="mt-7 grid gap-8">
+      <div className="mt-10 grid gap-8">
         {projects.map((project, index) => (
-          <article key={project.id} className="panel rounded-[28px] p-5" data-reveal>
+          <article key={project.id} className="glass-card rounded-[28px] p-5" data-reveal>
             <div className="grid gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:items-center">
               <div className={index % 2 === 0 ? 'order-2 lg:order-1' : 'order-2 lg:order-2'}>
                 <div className="flex items-center gap-3">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[color:var(--ring)] bg-[color:var(--panel-strong)] text-[10px] font-semibold uppercase tracking-[0.2em] text-[color:var(--accent)] sm:h-12 sm:w-12">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[color:var(--ring)] bg-[color:var(--panel-strong)] text-[10px] font-semibold uppercase tracking-[0.2em] text-[color:var(--ink)] sm:h-12 sm:w-12">
                     {String(index + 1).padStart(2, '0')}
                   </span>
                   <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-[color:var(--ink-soft)]/70 sm:text-[12px]">
